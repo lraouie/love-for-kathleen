@@ -24,17 +24,6 @@ export default function Flower() {
     <div className="min-h-screen bg-gradient-to-br from-[#1b0b2e] via-[#3b0764] to-[#6b21a8]
                     flex flex-col items-center overflow-hidden relative">
 
-      {/* BACK BUTTON */}
-      <button
-        onClick={() => window.history.back()}
-        className="absolute top-6 left-6 z-50
-                   text-purple-200 hover:text-purple-100
-                   transition-all duration-300 hover:-translate-x-1
-                   font-['Dancing_Script'] text-lg"
-      >
-        Back
-      </button>
-
       {/* TITLE – FIXED TOP */}
       <h1 className="fixed top-8 z-40 text-center
                      font-['Dancing_Script']
@@ -156,3 +145,4 @@ export default function Flower() {
     </div>
   );
 }
+

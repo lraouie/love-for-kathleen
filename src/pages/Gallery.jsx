@@ -196,7 +196,7 @@ export default function Gallery() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#1b0b2e] via-[#3b0764] to-[#6b21a8] text-white flex items-center justify-center px-10 overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-[#1b0b2e] via-[#3b0764] to-[#6b21a8] text-white flex items-center justify-center px-4 sm:px-6 md:px-10 overflow-x-hidden">
 
       {/* BACK TO HOME */}
       <button
@@ -212,10 +212,12 @@ export default function Gallery() {
       </button>
 
       {/* MAIN LAYOUT */}
-      <div className="flex gap-10 max-w-6xl w-full items-center">
+      <div className="flex flex-col lg:flex-row gap-6 lg:gap-10 max-w-6xl w-full items-center">
+
 
         {/* ================= CALENDAR (LEFT) ================= */}
-        <div className="w-[55%]">
+        <div className="w-full lg:w-[55%]">
+
 
           {/* MONTH NAV */}
           <div className="flex items-center justify-center gap-8 mb-6">
@@ -256,7 +258,8 @@ export default function Gallery() {
             </div>
 
             {/* DAYS */}
-            <div className="grid grid-cols-7 gap-3">
+            <div className="grid grid-cols-7 gap-2 sm:gap-3">
+
               {Array.from({ length: month.days }).map((_, i) => {
                 const day = i + 1;
                 const hasMedia = mediaData[monthName]?.[day];
@@ -265,7 +268,7 @@ export default function Gallery() {
                   <button
                     key={day}
                     onClick={() => handleSelectDay(day)}
-                    className={`relative aspect-square rounded-xl flex items-center justify-center
+                    className={`relative aspect-square rounded-xl flex items-center justify-center text-sm sm:text-base
                       transition-all duration-300
                       ${
                         selectedDay === day
@@ -288,7 +291,7 @@ export default function Gallery() {
         </div>
 
         {/* ================= MEDIA BOX (RIGHT) ================= */}
-        <div className="w-[45%] bg-white/10 rounded-3xl p-6 shadow-xl backdrop-blur-md flex flex-col items-center justify-center min-h-[420px]">
+        <div className="w-full lg:w-[45%] bg-white/10 rounded-3xl p-4 sm:p-6 shadow-xl backdrop-blur-md flex flex-col items-center justify-center min-h-[320px] sm:min-h-[420px]">
 
           {!selectedDay && (
             <p className="text-purple-200 text-center text-lg">
@@ -319,7 +322,8 @@ export default function Gallery() {
                   src={mediaList[mediaIndex].src}
                   alt="memory"
                   onClick={() => setIsModalOpen(true)}
-                  className="rounded-xl max-h-[260px] object-contain mb-4 cursor-pointer
+                  className="rounded-xl max-h-[220px] sm:max-h-[260px] object-contain mb-4 cursor-pointer
+
                              transition-transform duration-300 hover:scale-105"
                 />
               )}
@@ -328,7 +332,8 @@ export default function Gallery() {
                 <video
                   src={mediaList[mediaIndex].src}
                   controls
-                  className="rounded-xl max-h-[260px] object-contain mb-4 cursor-pointer
+                  className="rounded-xl max-h-[220px] sm:max-h-[260px] object-contain mb-4 cursor-pointer
+
                              transition-transform duration-300 hover:scale-105"
                 />
               )}
@@ -372,7 +377,8 @@ export default function Gallery() {
           <img
             src={mediaList[mediaIndex].src}
             alt="expanded"
-            className="max-w-[90%] max-h-[90%] rounded-2xl shadow-2xl animate-fade-in"
+            className="max-w-[95%] max-h-[85%] sm:max-w-[90%] sm:max-h-[90%] rounded-2xl shadow-2xl animate-fade-in"
+
           />
         </div>
       )}

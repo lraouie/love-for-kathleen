@@ -198,18 +198,6 @@ export default function Gallery() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#1b0b2e] via-[#3b0764] to-[#6b21a8] text-white flex items-center justify-center px-4 sm:px-6 md:px-10 overflow-x-hidden">
 
-      {/* BACK TO HOME */}
-      <button
-        onClick={() => window.history.back()}
-        className="absolute top-6 left-6 z-50 flex items-center gap-2
-                  text-purple-200 hover:text-purple-100
-                  transition-all duration-300
-                  hover:-translate-x-1"
-      >
-        <span className="font-['Dancing_Script'] text-lg">
-          Back
-        </span>
-      </button>
 
       {/* MAIN LAYOUT */}
       <div className="flex flex-col lg:flex-row gap-6 lg:gap-10 max-w-6xl w-full items-center">
@@ -410,3 +398,4 @@ export default function Gallery() {
     </div>
   );
 }
+

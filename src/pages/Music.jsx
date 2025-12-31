@@ -44,18 +44,6 @@ export default function Music() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#1b0b2e] via-[#4c1d95] to-[#a855f7] text-white px-6 py-10 flex flex-col items-center">
-      {/* BACK TO HOME */}
-      <button
-        onClick={() => window.history.back()}
-        className="absolute top-6 left-6 z-50 flex items-center gap-2
-                  text-purple-200 hover:text-purple-100
-                  transition-all duration-300
-                  hover:-translate-x-1"
-      >
-        <span className="font-['Dancing_Script'] text-lg">
-          Back
-        </span>
-      </button>
       
       <h1 className="text-4xl md:text-5xl mb-10 font-['Dancing_Script'] text-center drop-shadow-lg">
         Songs that remind me of our love
@@ -99,3 +87,4 @@ export default function Music() {
     </div>
   );
 }
+

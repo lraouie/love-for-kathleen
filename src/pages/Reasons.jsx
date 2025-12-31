@@ -22,13 +22,14 @@ export default function Reasons() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-[#2a0a4f] via-[#5b21b6] to-[#a855f7] text-white px-4 py-10">
-      
-      <h1 className="text-center text-4xl mb-10 font-['Dancing_Script']">
+
+      {/* TITLE */}
+      <h1 className="text-center text-3xl sm:text-4xl md:text-5xl mb-10 font-['Dancing_Script'] px-2">
         Some reasons kung paano mo ko na-gayuma 💜
       </h1>
 
-      {/* CENTERED LIST */}
-      <div className="max-w-5xl mx-auto flex flex-col items-center gap-4">
+      {/* LIST */}
+      <div className="max-w-4xl mx-auto flex flex-col items-center gap-4">
         {reasons.map(([title, text], i) => {
           const isOpen = opened.includes(i);
 
@@ -37,43 +38,50 @@ export default function Reasons() {
               key={i}
               onClick={() => toggle(i)}
               className={`
+                w-full
+                sm:w-auto
                 self-center
-                inline-flex items-center gap-2
-                rounded-full cursor-pointer select-none
+                flex items-start sm:items-center gap-3
+                rounded-2xl sm:rounded-full
+                cursor-pointer select-none
                 border border-white/25
                 bg-white/15 backdrop-blur-lg
-                px-4 py-2
+                px-5 py-4 sm:py-2
                 shadow-lg
-                overflow-hidden whitespace-nowrap
                 transition-all duration-500 ease-out
                 hover:bg-white/20
-                ${isOpen ? "max-w-[900px]" : "max-w-[220px]"}
+                ${isOpen
+                  ? "max-w-full sm:max-w-[720px]"
+                  : "max-w-full sm:max-w-[260px]"}
               `}
             >
               {/* HEART */}
               <span
-                className={`text-lg transition-colors duration-300 ${
+                className={`text-xl transition-colors duration-300 ${
                   isOpen ? "text-purple-300" : "text-white"
                 }`}
               >
                 {isOpen ? "💜" : "🤍"}
               </span>
 
-              {/* TITLE */}
-              <span className="font-semibold text-sm sm:text-base">
-                {title}
-              </span>
+              {/* TEXT BLOCK */}
+              <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2">
+                <span className="font-semibold text-sm sm:text-base">
+                  {title}
+                </span>
 
-              {/* SLIDING TEXT */}
-              <span
-                className={`
-                  ml-2 text-sm text-purple-100
-                  transition-all duration-500 ease-out
-                  ${isOpen ? "opacity-100 translate-x-0" : "opacity-0 translate-x-6"}
-                `}
-              >
-                {isOpen && `– ${text}`}
-              </span>
+                <span
+                  className={`
+                    text-sm text-purple-100
+                    transition-all duration-500 ease-out
+                    ${isOpen
+                      ? "opacity-100 translate-x-0"
+                      : "opacity-0 translate-x-4 sm:translate-x-6"}
+                  `}
+                >
+                  {isOpen && `– ${text}`}
+                </span>
+              </div>
             </div>
           );
         })}
@@ -81,10 +89,13 @@ export default function Reasons() {
 
       {/* UNLOCK BUTTON */}
       {opened.length === reasons.length && (
-        <div className="text-center mt-12">
+        <div className="text-center mt-12 px-4">
           <button
             onClick={() => navigate("/home")}
-            className="rounded-full bg-gradient-to-r from-purple-500 via-fuchsia-500 to-pink-500 px-12 py-3 text-lg font-semibold text-white shadow-xl hover:scale-105 transition"
+            className="w-full sm:w-auto rounded-full
+                       bg-gradient-to-r from-purple-500 via-fuchsia-500 to-pink-500
+                       px-10 py-3 text-lg font-semibold text-white
+                       shadow-xl hover:scale-105 transition"
           >
             Unlock Me 💕
           </button>
